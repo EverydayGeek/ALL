@@ -1,0 +1,45 @@
+//made by blazing_h
+//made by blazing_h
+var air = false;
+//made by blazing_h
+function modTick(){
+if (Level.getTile(getPlayerX(), getPlayerY()-2, getPlayerZ())==0){
+air = true;
+}else{air = false}
+}//made by blazing_h
+//made by blazing_h
+var GUI;
+      function newLevel(){
+      var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
+      ctx.runOnUiThread(new java.lang.Runnable({ run: function(){
+      try{
+      var layout = new android.widget.LinearLayout(ctx);
+      layout.setOrientation(1);
+      //made by blazing_h
+      var button = new android.widget.Button(ctx);
+      button.setText('Jump');
+      button.setOnClickListener(new android.view.View.OnClickListener({
+      onClick: function(viewarg){
+      if (air==false){
+      setVelY(getPlayerEnt(), 0.6);
+      }}
+      }));
+      layout.addView(button);
+      //made by blazing_h
+      GUI = new android.widget.PopupWindow(layout, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
+      GUI.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
+      GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.RIGHT | android.view.Gravity.BOTTOM, 250, 300);
+      }catch(err){
+      print('An error occured: ' + err);
+      }
+      }}));
+      }
+//made by blazing_h
+//made by blazing_h
+//made by blazing_h
+//made by blazing_h
+//made by blazing_h
+//made by blazing_h
+//made by blazing_h
+//made by blazing_h
+//made by blazing_h
